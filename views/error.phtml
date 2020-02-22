@@ -1,0 +1,12 @@
+{% extends "template.phtml" %}
+
+{% block main %}
+<section id="three" class="wrapper">
+    <div class="inner">
+        <header class="align-center">
+            <h2> {{ error ? error : "Erro" }} </h2>
+            <p> {{ msg }} </p>
+        </header>
+    </div>
+</section>
+{% endblock %}
