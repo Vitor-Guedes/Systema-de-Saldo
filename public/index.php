@@ -9,9 +9,9 @@ $config = [
     'db' => [
         'driver' => 'mysql',
         'host' => 'localhost',
-        'user' => 'root',
-        'pass' => '',
-        'dbname' => 'sysaldo',
+        'username' => 'root',
+        'password' => '',
+        'database' => 'sysaldo',
         'charset'   => 'utf8',
         'collation' => 'utf8_unicode_ci',
         'prefix'    => '',
@@ -47,6 +47,7 @@ $container['db'] = function ($container) {
 $container['errorHandler'] = function ($container) {
     return function ($req, $res, $exception) use ($container) {
         $view = $container->get('view');
+        var_dump($exception->getMessage());
         $view->render($res, 'error.phtml', [
             'title' => "Erro",
             'msg' => "Ops! Ocorreu um erro."

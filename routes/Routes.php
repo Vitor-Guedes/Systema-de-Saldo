@@ -6,4 +6,4 @@ $app->get('/', function ($req, $res, $args) {
 
 $app->get('/login', function ($req, $res, $args) {
     return $this->view->render($res, 'formLogin.phtml', ['title' => "Entrar"]);
-});
+})->setName('formLogin');
