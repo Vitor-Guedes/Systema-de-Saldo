@@ -47,10 +47,9 @@ $container['db'] = function ($container) {
 $container['errorHandler'] = function ($container) {
     return function ($req, $res, $exception) use ($container) {
         $view = $container->get('view');
-        var_dump($exception->getMessage());
         $view->render($res, 'error.phtml', [
             'title' => "Erro",
-            'msg' => "Ops! Ocorreu um erro."
+            'msg' => "Ops! Ocorreu um erro: " . $exception->getMessage() . "."
         ]);
         return $res;
     };
@@ -69,7 +68,7 @@ $container['notFoundHandler'] = function ($container) {
 };
 /** */
 
-/** Lista de rotas do systema */
+/** Lista de rotas do sistema */
 include "../routes/Routes.php";
 /** */
 

@@ -1,0 +1,26 @@
+{% extends "template.phtml" %}
+
+{% block main %}
+<section id="three" class="wrapper">
+    <div class="inner 6u$">
+        <header class="align-center">
+            <h2>Entrar</h2>
+        </header>
+        <form method="post" action="#">
+            <div class="row uniform">
+                <div class="12u$ 12u$(xsmall)">
+                    <input type="email" name="email" id="email" placeholder="Email">
+                </div>
+                <div class="12u 12u$(xsmall)">
+                    <input type="password" name="password" id="password" placeholder="Senha">
+                </div>
+                <div class="12u align-center">
+                    <ul class="actions">
+                        <li><button type="button" id="btn-register"> Entrar </li>
+                    </ul>
+                </div>
+            </div>
+        </form>
+    </div>
+</section>
+{% endblock %}

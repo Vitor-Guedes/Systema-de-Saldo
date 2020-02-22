@@ -11,16 +11,37 @@
     
 <header id="header">
     <div class="inner">
-        <a href="index.html" class="logo"><strong>Systema de Saldo</strong></a>
+        <a href="{{ path_for('home') }}" class="logo"><strong>Systema de Saldo</strong></a>
         <nav id="nav">
-            <a href="index.html">Login</a>
-            <a href="generic.html">Cadastrar-se</a>
+            <a href="{{ path_for('formLogin') }}">Login</a>
+            <a href="{{ path_for('formRegister') }}">Cadastrar-se</a>
         </nav>
-        <a href="#navPanel" class="navPanelToggle"><span class="fa fa-bars"></span></a>
+        <a href="#" class="navPanelToggle"><span class="fa fa-bars"></span></a>
     </div>
 </header>
 
 {% block main %}{% endblock %}
+
+<div id="navPanel" class="">
+    <a href="{{ path_for('formLogin') }}">Login</a>
+    <a href="{{ path_for('formRegister') }}">Cadastrar-se</a>
+    <a href="#" class="close"></a>
+</div>
+
+<script>
+    (function (doc) {
+        doc.addEventListener("DOMContentLoaded", function () {
+            let navPainel = doc.getElementById('navPanel'),
+                showNav = doc.querySelector('.navPanelToggle'),
+                hideNav = doc.querySelector('.close'),
+                toggleNav = () => { navPainel.classList.toggle('visible'); };
+            showNav.addEventListener('click', toggleNav);
+            hideNav.addEventListener('click', toggleNav);
+        });
+    })(document);
+</script>
+
+{% block js %}{% endblock %}
 
 </body>
 </html>
